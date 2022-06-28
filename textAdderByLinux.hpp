@@ -8,7 +8,7 @@ class TextAdderByLinux {
 private:
     int fd;
 public:
-    TextAdderByLinux(char *fileName);
+    explicit TextAdderByLinux(char *fileName);
     void writeByLinux(const char *toAdd);
     ~TextAdderByLinux();
 };

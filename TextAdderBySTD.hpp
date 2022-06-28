@@ -8,7 +8,7 @@ class TextAdderBySTD {
 private:
     std::fstream myFile;
 public:
-    TextAdderBySTD(const std::string &fileName);
+    explicit TextAdderBySTD(const std::string &fileName);
     void write(const std::string& toAdd);
     ~TextAdderBySTD();
 };
