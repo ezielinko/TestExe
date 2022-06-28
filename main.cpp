@@ -1,14 +1,37 @@
 #include <iostream>
-#include "TextAdder.hpp"
+#include "TextAdderBySTD.hpp"
+#include "textAdderByLinux.hpp"
 
-int main() {
-    std::cout << "Just do it!" << std::endl;
+int main(int argc, char *argv[]) {
+    int mode = strtol(argv[1], nullptr, 10);
 
-    std::string fileName;
-    std::cin >> fileName;
+    if(mode == 1 || mode == 2) {
+        switch (mode) {
+            case 1: {
+                std::cout << "You choose Linux method." << std::endl;
 
-    TextAdder adding(fileName);
-
+                TextAdderByLinux LinuxTextAdder(argv[2]);
+                for (int i = 3; i < argc; i++) {
+                    LinuxTextAdder.writeByLinux(argv[i]);
+                }
+            }
+                break;
+            case 2: {
+                std::cout << "You choose STD method." << std::endl;
+                TextAdderBySTD STDTextAdder(argv[2]);
+                for (int i = 3; i < argc; i++) {
+                    STDTextAdder.write(argv[i]);
+                }
+            }
+                break;
+        }
+    } else {
+        std::cout << "Wrong arguments! :( ";
+        std::cout << "Instructions how correctly run the program:\n" << std::endl;
+        std::cout << "fileName.txt / program mode represent by int 1 or 2. "
+                     "1 = Linux functions method, 2 = Standard library method / text to add. \n" << std::endl;
+        std::cout << "TYPE WITHOUT SLASHES, its only to separate arguments! Just separate by space :)" << std::endl;
+    }
 
     return 0;
 }
