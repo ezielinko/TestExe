@@ -3,4 +3,4 @@ project(TestExercise)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(TestExercise main.cpp TextAdderBySTD.cpp TextAdderBySTD.hpp textAdderByLinux.cpp textAdderByLinux.hpp)
+add_executable(TestExercise main.cpp TextAdderBySTD.cpp textAdderByLinux.cpp writer.cpp writer.hpp)

@@ -4,15 +4,15 @@
 
 int main(int argc, char *argv[]) {
     int mode = strtol(argv[1], nullptr, 10);
+    const std::string fileName(argv[2]);
 
-    if(mode == 1 || mode == 2) {
         switch (mode) {
             case 1: {
                 std::cout << "You choose Linux method." << std::endl;
 
                 TextAdderByLinux LinuxTextAdder(argv[2]);
                 for (int i = 3; i < argc; i++) {
-                    LinuxTextAdder.writeByLinux(argv[i]);
+                    LinuxTextAdder.save(dataToWrite);
                 }
             }
                 break;
@@ -24,14 +24,14 @@ int main(int argc, char *argv[]) {
                 }
             }
                 break;
+            default:
+                std::cout << "Wrong arguments! :( ";
+                std::cout << "Instructions how correctly run the program:\n" << std::endl;
+                std::cout << "fileName.txt / program mode represent by int 1 or 2. "
+                             "1 = Linux functions method, 2 = Standard library method / text to add. \n" << std::endl;
+                std::cout << "TYPE WITHOUT SLASHES, its only to separate arguments! Just separate by space :)" << std::endl;
         }
-    } else {
-        std::cout << "Wrong arguments! :( ";
-        std::cout << "Instructions how correctly run the program:\n" << std::endl;
-        std::cout << "fileName.txt / program mode represent by int 1 or 2. "
-                     "1 = Linux functions method, 2 = Standard library method / text to add. \n" << std::endl;
-        std::cout << "TYPE WITHOUT SLASHES, its only to separate arguments! Just separate by space :)" << std::endl;
-    }
+
 
     return 0;
 }
