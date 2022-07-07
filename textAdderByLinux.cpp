@@ -9,9 +9,9 @@ TextAdderByLinux::TextAdderByLinux(char *fileName) {
    }
 }
 
-void TextAdderByLinux::save(const std::string &toAdd) {
+void TextAdderByLinux::save(const char *toAdd) {
     const std::string toAddToString(toAdd);
-    write(fd, toAddToString, toAddToString.size());
+    write(fd, toAdd, toAddToString.size());
     write(fd, "\n", 1);
 }
 

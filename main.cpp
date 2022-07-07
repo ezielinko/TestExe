@@ -1,26 +1,26 @@
 #include <iostream>
+#include <memory>
 #include "TextAdderBySTD.hpp"
 #include "textAdderByLinux.hpp"
 
 int main(int argc, char *argv[]) {
-    int mode = strtol(argv[1], nullptr, 10);
+    const int mode = strtol(argv[1],nullptr,10);
     const std::string fileName(argv[2]);
 
         switch (mode) {
             case 1: {
                 std::cout << "You choose Linux method." << std::endl;
-
-                TextAdderByLinux LinuxTextAdder(argv[2]);
+                std::unique_ptr<TextAdderByLinux> linuxWriter = std::make_unique<TextAdderByLinux>(argv[2]);
                 for (int i = 3; i < argc; i++) {
-                    LinuxTextAdder.save(dataToWrite);
+                    linuxWriter->save(argv[i]);
                 }
             }
                 break;
             case 2: {
                 std::cout << "You choose STD method." << std::endl;
-                TextAdderBySTD STDTextAdder(argv[2]);
+                std::unique_ptr<TextAdderBySTD> stdWriter = std::make_unique<TextAdderBySTD>(argv[2]);
                 for (int i = 3; i < argc; i++) {
-                    STDTextAdder.write(argv[i]);
+                    stdWriter->save(argv[i]);
                 }
             }
                 break;

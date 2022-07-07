@@ -10,7 +10,7 @@ private:
     int fd;
 public:
     explicit TextAdderByLinux(char *fileName);
-    void save(const std::string &toAdd) override;
+    void save(const char *toAdd) override;
     ~TextAdderByLinux();
 };
 

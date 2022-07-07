@@ -8,8 +8,10 @@ class Writer {
 private:
     std::fstream myFile;
 public:
-
+    Writer();
     virtual void save(const std::string& data);
+    virtual void save(const char *toAdd);
+    ~Writer();
 };
 
 

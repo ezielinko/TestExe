@@ -10,7 +10,7 @@ private:
     std::fstream myFile;
 public:
     explicit TextAdderBySTD(const std::string &fileName);
-    void write(const std::string& toAdd) override;
+    void save(const std::string& toAdd) override;
     ~TextAdderBySTD();
 };
 #endif
